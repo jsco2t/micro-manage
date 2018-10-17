@@ -7,7 +7,14 @@ k8s() {
         # default
         showDoc "/documents/k8s/index.md"
     else
-        helpDoc="/documents/k8s/$1.md"    
+        helpDoc="/documents/k8s/index.md" # default for safety
+
+        if [[ -z "$2" ]]; then
+            helpDoc="/documents/k8s/$1.md"
+        else
+            helpDoc="/documents/k8s/$1/$2.md"
+        fi
+
         if [ -f $helpDoc ]; then
             showDoc "$helpDoc"
         else

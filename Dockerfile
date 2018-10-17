@@ -94,7 +94,7 @@ RUN mkdir /documents
 COPY /documents /documents
 
 # setup oh-my-zsh
-RUN cat /resources/oh-my-szh-installer.sh | zsh || true
+RUN cat /resources/oh-my-zsh-installer.sh | zsh || true
 
 # re-configure zsh:
 RUN cp /resources/.zshrc ~/.zshrc

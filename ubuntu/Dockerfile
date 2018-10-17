@@ -77,7 +77,7 @@ ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8 
 
 # setup oh-my-zsh
-RUN cat /resources/oh-my-szh-installer.sh | zsh || true
+RUN cat /resources/oh-my-zsh-installer.sh | zsh || true
 
 # re-configure zsh:
 RUN cp /resources/.zshrc ~/.zshrc
