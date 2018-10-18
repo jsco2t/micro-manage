@@ -70,6 +70,7 @@ plugins=(
   aws
   docker
   redis-cli
+  github
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -107,4 +108,5 @@ source $ZSH/oh-my-zsh.sh
 export MDV_THEME=649.7192
 
 source /scripts/helpers.sh
+source /scripts/k8scmd.sh
 help

@@ -1,4 +1,5 @@
-# Setting up kubectl to access k8s
+----
+# Setting up _kubectl_ to access k8s
 
 ## Overview
 
@@ -13,6 +14,7 @@ Working with a **k8s cluster** involves a few basic components:
 For **kubectl** to be able to talk to a _kubernetes_ cluster it needs to have a configuration called **config** located in a folder called **.kube** in your home directory:
 
 ```
+----------------
 c:\users\username\.kube\config
 
 --or macos--
@@ -22,6 +24,7 @@ c:\users\username\.kube\config
 --or linux--
 
 /home/username/.kube/config
+----------------
 ```
 
 ## Setup

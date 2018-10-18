@@ -1,4 +1,5 @@
-# Setting up kubectl to access k8s
+----
+# Setting up _kubectl_ to access k8s
 
 ## Option: Create a config file and/or configure it.
 

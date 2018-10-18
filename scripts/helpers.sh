@@ -1,5 +1,7 @@
+defaultHelpDocument="/documents/readme.md"
+
 help() {
-    showDoc "/documents/readme.md"
+    showDoc $defaultHelpDocument
 }
 
 k8s() {
@@ -18,16 +20,40 @@ k8s() {
         if [ -f $helpDoc ]; then
             showDoc "$helpDoc"
         else
-            echo "The requested command and/or help doc does not exist - please try these:"
-            echo ""
-            echo "For basic help run: help"
-            echo ""
-            showDoc "/documents/k8s/index.md"
+            showDoc "/documents/k8s/index.md" "show-error"
         fi
     fi
 }
 
 showDoc() {
     clear
-    msee "$1"
+    
+    if [[ -z "$1" ]]; then
+        echo "########"
+        echo "!!FAIL!! No document requested"
+        echo "########"
+        echo ""
+        msee "$defaultHelpDocument"
+    fi
+
+    if [[ ! -f "$1" ]]; then # check if file exists
+        echo "########"
+        echo "!!WARNING!! The requested command and/or help doc does not exist:"
+        echo ""
+        echo "For basic help run: help and/or k8s"
+        echo "########"
+        echo ""
+        msee "$defaultHelpDocument"
+    else
+        if [[ ! -z "$2" ]]; then # check to see if warning boilerplate was requested
+            echo "########"
+            echo "!!WARNING!! The requested command and/or help doc does not exist - please try these:"
+            echo ""
+            echo "For basic help run: help and/or k8s"
+            echo "########"
+            echo ""
+        fi
+
+        msee "$1"
+    fi
 }

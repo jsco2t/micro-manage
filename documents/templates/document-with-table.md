@@ -1,20 +1,17 @@
 ----
-# _kubectl_ commands which are useful for working with _k8s_
+# This is an example document title for _product name_
 
 ## Overview
 
-Working with a **k8s cluster** is almost completely done with a utility called **kubectl**. **micro-manage** includes high-level tips and/or guidance for using **kubectl**. However for in depth information please consult the public documentation:
+Put your overview info here. If mentioning products put emphasis around the **product name**.
 
-### _kubectl_ overview
+### These are overview links
 https://kubernetes.io/docs/reference/kubectl/overview/
 
-### _kubectl_ cheat-sheet
+### And this is another link
 https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 
-### _kubectl_ command reference
-https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands
-
-## Helper docs for working with _kubectl_
+## Use the following helper commands for more info about _product name_
 
 | **_Command_** | **_Purpose_** |
 | -- | -- |
