@@ -3,38 +3,50 @@
 
 ## Overview
 
-**deployments** in **k8s** or one of the key ways to request that a cluster start running a new workload (set of **pods** and **sevices**...etc). **deployments** are not the *only* way to request a **k8s** cluster to run your containers. Other options include **replicasets** and **daemonsets**.
+**deployments** in **k8s** are one of the key ways to request that a cluster start running a new workload (set of **pods** and **sevices**...etc). **deployments** are not the *only* way to request a **k8s** cluster to run your containers. Other options include **replicasets** and **daemonsets**.
 
-The following are examples for using **command name**. For more information about this command please see the following document:
+This document contains examples for using the **kubectl** **deployment** command. For more information about this command please see the following document:
 
 https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#creating-a-deployment
 
 https://kubernetes.io/docs/concepts/overview/object-management-kubectl/overview/
 
+https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
+
+https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
+
 ### Deploying using a _'yaml'_ file and the _'apply'_ command:
 ```
 ----------------
 kubectl -n some-namespace apply -f some-deployment.yaml
+
+(namespaces can be listed with the 'kubectl get namespaces' command)
 ----------------
 ```
 ### Deploying using a _'yaml'_ file and the _'create'_ command:
 ```
 ----------------
 kubectl -n some-namespace create -f some-deployment.yaml
+
+(namespaces can be listed with the 'kubectl get namespaces' command)
 ----------------
 ```
+
+**Sidebar**: Why use **create** vs **apply**? The answer is beyond the scope of this document. The basics have to do with how **k8s** manages state for the resources it's managing. With **apply**, **k8s** will attempt to examine the previous state of the object and only update what has changed. 
+
+More info:
+https://kubernetes.io/docs/concepts/cluster-administration/manage-deployment/#in-place-updates-of-resources
+
+https://kubernetes.io/docs/concepts/overview/object-management-kubectl/overview/
+
+In most cases - using **'apply'** as long as it's consistently used should be a more flexible choice.
+
 ### View current _'deployments'_:
 ```
 ----------------
 kubectl -n some-namespace get deployments
 
--- find the deployment you want information --
--- then use one of the following --
-
-To see information about the deployment:
-kubectl -n some-namespace describe deployment deployment-name
-
-To see a
+(namespaces can be listed with the 'kubectl get namespaces' command)
 ----------------
 ```
 ### View _'deployment'_ details:
@@ -42,19 +54,35 @@ To see a
 ----------------
 kubectl -n some-namespace describe deployment deployment-name
 
-(if you don't know `deployment-name` use the 'get deployments' command)
+(to get deployment-name use the 'get deployments' command)
 ----------------
 ```
+### View _'deployment'_ rollout status:
+```
+----------------
+kubectl -n some-namespace rollout status deployment/deployment-name
 
-#### These are overview links
-https://kubernetes.io/docs/reference/kubectl/overview/
+(to get deployment-name use the 'get deployments' command)
+----------------
+```
+### View the _'deployment yaml'_ that was last used (may contain _'k8s'_ modifications):
+```
+----------------
+kubectl -n some-namespace get deployments deployment-name -o yaml
 
-#### And this is another link
-https://kubernetes.io/docs/reference/kubectl/cheatsheet/
+(to get deployment-name use the 'get deployments' command)
+----------------
+```
+### Deleting a _'deployment'_ using it's _'yaml file'_ or name:
+```
+----------------
+kubectl -n some-namespace delete -f deployment-name.yaml
 
-## PLEASE READ notes:
+kubectl -n some-namespace delete deployments deployment-name
 
-Put any cautionary tales / tips / "don't do what I did" info here.
+(to get deployment-name use the 'get deployments' command)
+----------------
+```
 
 _To see more help run:_
 **k8s**
