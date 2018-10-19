@@ -1,11 +1,15 @@
 ----
-# This is an example document title for _product name_
+# This is an example document title for _command name_
 
 ## Overview
 
-Put your overview info here. If mentioning products put emphasis around the **product name**.
+Put your overview info here. If mentioning products put emphasis around the **command name**.
 
-### source code command info:
+The following are examples for using **command name**. For more information about this command please see the following document:
+
+https://kubernetes.io/docs/reference/kubectl/overview/
+
+### Doing _'something'_ using the _'foo'_ command:
 ```
 ----------------
 put your source code here

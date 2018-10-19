@@ -14,6 +14,9 @@ kubectl config get-contexts
 kubectl version
 ----------------
 ```
+
+_To see more help about managing your *kubectl context* run: **kubectl context**
+
 _To see more help run:_ **k8s**
 
 ****
