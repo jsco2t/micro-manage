@@ -25,7 +25,6 @@ https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands
 | _k8s commands nodes_ | Working with **k8s nodes** |
 | _k8s commands pods_ | Working with **k8s pods** |
 | _k8s commands services_ | Working with **k8s services** |
-| _k8s commands pods_ | Working with **k8s pods** |
 
 _To see more help run:_
 **k8s**

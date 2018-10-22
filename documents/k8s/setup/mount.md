@@ -10,7 +10,9 @@ In this case we need to mount the local **.kube** folder into the container so t
 ```
 ----------------
 docker run -v c:\users\username\.kube\:/root/.kube -it --name micro-manage jsco2t/micro-manage:latest
+
 -- or --
+
 docker run -v /home/username/.kube/:/root/.kube -it --name micro-manage jsco2t/micro-manage:latest
 
 For example - for a user named `Sue` on `macOS` that might look like this:
