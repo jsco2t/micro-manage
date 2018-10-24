@@ -1,4 +1,5 @@
-FROM alpine:3.8
+FROM microsoft/dotnet:2.1.403-sdk-stretch
+#FROM ubuntu:18.04
 LABEL maintainer="github.com/jsco2t"
 
 # arguments
@@ -6,30 +7,56 @@ ARG KUBECTLURL="https://storage.googleapis.com/kubernetes-release/release/v1.11.
 ARG KOPSURL="https://github.com/kubernetes/kops/releases/download/1.10.0/kops-linux-amd64"
 ARG AWSAUTHURL="https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-07-26/bin/linux/amd64/aws-iam-authenticator"
 ARG SAM2AWSURL="https://github.com/Versent/saml2aws/releases/download/v2.9.1/saml2aws_2.9.1_linux_amd64.tar.gz"
+ARG NODEVERSION="node_8.x"
+ARG MSPKGKEYURL="https://packages.microsoft.com/keys/microsoft.asc"
+ARG MSDEBPKGURL="https://packages.microsoft.com/repos/microsoft-debian-stretch-prod"
 
 # install required dependencies
-RUN apk update && apk upgrade && apk add --no-cache \
-    bash \
-    bind-tools \
-    ca-certificates \
-    curl \
-    docker \
-    git \
-    iputils \
-    jq \
-    less \
-    nano \
-    nodejs \
-    npm \
-    python \
-    py-pip \
-    zip \
-    zsh
+RUN apt-get update && apt-get -y upgrade
 
-# install the aws tools using python
+RUN apt-get install -y \
+    apt-utils \
+    apt-transport-https \
+    apparmor \
+    ca-certificates \
+    gnupg \
+    gnupg2 \
+    curl \
+    build-essential \
+    software-properties-common \
+    nano \
+    wget \
+    libyaml-dev \
+    libpython2.7-dev \
+    python-pip \
+    jq \
+    xsltproc \
+    zip \
+    sudo \
+    zsh \
+    git \
+    locales
+
+# install aws tooling:
 RUN pip install --upgrade \
     awscli \
     s3cmd
+
+# install nodejs/npm:
+# version with debian stretch was stale and was missing 'npm'
+RUN DISTRO="$(lsb_release -s -c)" && \
+    curl -sSL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add - && \
+    echo "deb https://deb.nodesource.com/$NODEVERSION $DISTRO main" | tee /etc/apt/sources.list.d/nodesource.list && \
+    #echo "deb-src https://deb.nodesource.com/$NODEVERSION $DISTRO main" | tee -a /etc/apt/sources.list.d/nodesource.list && \
+    apt-get update && \
+    apt-get install -y nodejs
+
+# install powershell core
+# https://docs.microsoft.com/en-us/powershell/scripting/setup/installing-powershell-core-on-linux?view=powershell-6
+RUN curl $MSPKGKEYURL | sudo apt-key add - && \
+    echo "deb [arch=amd64] $MSDEBPKGURL stretch main" > /etc/apt/sources.list.d/microsoft.list && \
+    apt-get update && \
+    apt-get install -y powershell
 
 # NOTE: It's **IMPORTANT** that the `k8s` version and the `kops` versions meet these requirements:
 #   1. They must match the existing clusters (or be known as compatable)
@@ -56,8 +83,6 @@ RUN curl -L -o saml2aws.tar.gz $SAM2AWSURL \
     && chmod +x saml2aws \
     && mv saml2aws /usr/local/bin/saml2aws \
     && rm saml2aws.tar.gz
-
-# # install powershell core
 
 # setup markdown formatting options
 RUN pip install mdv && \
@@ -93,18 +118,24 @@ RUN cat /resources/oh-my-zsh-installer.sh | zsh || true
 RUN cp /resources/.zshrc ~/.zshrc
 
 # cleanup:
+RUN apt-get autoremove -y && \
+    rm -rf /var/lib/apt/lists/*
 
 # entrypoint
 WORKDIR /root
 CMD ["zsh"]
 
 # building
-#   docker build -t "micro-manage:N.NN" .
-#   Example: docker build -t "micro-manage:0.01" .
+#
+#   PLEASE NOTE: Building this dockerfile must be done from the parent directory
+#   so that the build context is correctly established.
+#
+#   docker build -t "micro-manage:N.NN-dotnet" -f ./dotnet/Dockerfile .
+#   Example: docker build -t "micro-manage:0.01-dotnet" -f ./dotnet/Dockerfile .
 #
 # running
-#   docker run -it --name micro-manage micro-manage:0.01
+#   docker run -it --name micro-manage micro-manage:0.01-dotnet
 # 
 # cleanup:
 #   docker rm micro-manage
-#   docker rmi micro-manage:0.01
+#   docker rmi micro-manage:0.01-dotnet
