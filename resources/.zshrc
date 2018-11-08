@@ -109,4 +109,8 @@ export MDV_THEME=649.7192
 
 source /scripts/helpers.sh
 source /scripts/k8scmd.sh
+source /scripts/setup.sh
+source /scripts/environment.sh
+
+setupEnv
 help

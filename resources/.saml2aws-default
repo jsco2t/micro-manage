@@ -1,0 +1,13 @@
+[default]
+app_id               =
+url                  = {{url}}
+username             = {{user}}
+provider             = {{provider}}
+mfa                  = {{mfa}}
+skip_verify          = false
+timeout              = 0
+aws_urn              = urn:amazon:webservices
+aws_session_duration = 28800
+aws_profile          = saml
+subdomain            =
+role_arn             =

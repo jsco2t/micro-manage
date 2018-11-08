@@ -28,6 +28,10 @@ k8s() {
 showDoc() {
     clear
     
+    showInlineDoc "$@"
+}
+
+showInlineDoc() {
     if [[ -z "$1" ]]; then
         echo "########"
         echo "!!FAIL!! No document requested"

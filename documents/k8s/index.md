@@ -17,3 +17,4 @@ The following commands can be used as short-cuts for working with **kubectl**:
 | -- | -- |
 | _k8scmd test-connect_ | Can we connect to the cluster? |
 | _k8scmd which-cluster_ | Tell me which cluster I'm talking to? |
+| _k8scmd portal_ | Start proxy access to the k8s dashboard |
