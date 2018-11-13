@@ -58,6 +58,6 @@ showInlineDoc() {
             echo ""
         fi
 
-        msee "$1"
+        mdv "$1"
     fi
 }

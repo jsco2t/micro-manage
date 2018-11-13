@@ -1,5 +1,4 @@
-****
-# k8scmd: _commandname_
+# # k8scmd: **commandname**
 
 ## What's going to be run:
 
@@ -11,6 +10,6 @@ This helper command will do blah blah blah.
 put your source code here
 ----------------
 ```
-_To see more help run:_ **k8s**
 
-****
+_To see more help run:_ **k8s**
+## =======================================

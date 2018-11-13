@@ -1,43 +1,43 @@
-----
-# Working with multiple _k8s_ clusters using _kubectl contexts_
+# # Working with multiple **k8s** clusters using **kubectl contexts**
 
 ## Overview
 
-When you setup a **kubectl config file** you have the option of including multiple clusters within that same config file. **kubectl** identifies which cluster it's communicating with **contexts**. A **context** is just an indicator of:
+When you setup a **kubectl config file** you have the option of including multiple clusters within that same config file. **kubectl** identifies which cluster it's communicating with **contexts**. A **context** is just an indicator of:<br>
 
 - Which cluster endpoint is being communicated with
 - What auth information is being used for the cluster
 - What the cluster name is
 
-### To see the current _context_:
+## To see the current _context_:
 ```
-kubectl config get-contexts
-```
-
-In the output look for the `*` symbol to designate which **k8s cluster** the **context** is currently pointing to:
-
-```
-CURRENT:   NAME        CLUSTER              AUTHINFO
-*          FooCluster  foo.somecluster.bar  foo-auth-info
-           BarCluster  bar.somecluster.foo  bar-auth-info
+kubectl config current-context
 ```
 
-### To change the current _context_:
+The output of that command will look **something** like this:
+
 ```
-kubectl config use-context FooCluster
+FooCluster01
+```
+
+## To change the current _context_ to:
+```
+kubectl config use-context FooCluster02
 ```
 
 You can verify the change by running the following again:
+```
+kubectl config current-context
+```
 
+You can also see all of the contexts, as well as your currently selected one with:
 ```
 kubectl config get-contexts
 ```
 
-## PLEASE READ notes:
+## PLEASE READ notes:<br>
 
-A couple **VERY** important things to understand about **contexts** and **kubectl**
+A couple **VERY** important things to understand about **contexts** and **kubectl**<br>
 
-- Some *commands* with **kubectl** are *destructive* please double check which cluster your working with prior to running anything which might cause a state change.
+- Some commands with _kubectl_ are **destructive** please double check which cluster your working with prior to running anything which might cause a state change.<br>
 
-_To see more help run:_
-**k8s**
+_To see more help run:_ **k8s**

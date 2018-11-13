@@ -1,15 +1,15 @@
-----
-# Working with _k8s_ _pods_
+# # Working with **k8s** **pods**
 
 ## Overview
 
-A **pod** is a logical object in **k8s** which represents one or more **docker containers**. In simple deployment scenarios you will typically find a 1:1 relationship between a **k8s pod** and a **docker container**
+A **pod** is a logical object in **k8s** which represents one or more **docker containers**. In simple deployment scenarios you will typically find a 1:1 relationship between a **k8s pod** and a **docker container**<br>
 
 More information:
+
 - https://kubernetes.io/docs/concepts/workloads/pods/pod/
 - https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands
 
-### Listing _'pods'_:
+### Listing **pods**:
 ```
 ----------------
 kubectl -n some-namespace get pods
@@ -19,14 +19,14 @@ kubectl -n qa get po
 ----------------
 ```
 
-### View context about what physical instance the _'pod'_ is running on:
+### View context about what physical instance the _pod_ is running on:
 ```
 ----------------
 kubectl -n some-namespace get pods -o wide
 ----------------
 ```
 
-### Getting _'pod'_ details:
+### Getting _pod_ details:
 ```
 ----------------
 kubectl -n some-namespace get pods pod-name -o yaml
@@ -36,9 +36,10 @@ kubectl -n some-namespace describe pod pod-name
 ----------------
 ```
 
-**Note**: When to use _'describe name'_ vs _'get name -o yaml'_ commands:
-- _'describe'_ gives you info about a running instance
-- _'get name -o yaml'_ gives you info about the deployed resource in _'yaml'_ format 
+**Note**: When to use _describe name_ vs _get name -o yaml_ commands:<br>
 
-_To see more help run:_
-**k8s**
+- _describe_ gives you info about a running instance
+- _get name -o yaml_ gives you info about the deployed resource in **yaml** format 
+
+<br>
+_To see more help run:_ **k8s**

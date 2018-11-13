@@ -1,5 +1,4 @@
-----
-# This is an example document title for _product name_
+# # This is an example document title for **product name**
 
 ## Overview
 
@@ -11,9 +10,9 @@ https://kubernetes.io/docs/reference/kubectl/overview/
 ### And this is another link
 https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 
-## Use the following helper commands for more info about _product name_
+## Use the following helper commands for more info about **product name**
 
-| **_Command_** | **_Purpose_** |
+| Command | Purpose |
 | -- | -- |
 | _k8s commands deployments_ | Working with **k8s deployments** |
 | _k8s commands ingress_ | Working with **k8s ingress routes** |
@@ -24,5 +23,6 @@ https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 | _k8s commands services_ | Working with **k8s services** |
 | _k8s commands pods_ | Working with **k8s pods** |
 
+<br>
 _To see more help run:_
 **k8s**

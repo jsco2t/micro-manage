@@ -1,18 +1,17 @@
-----
-# Solving common _k8s_ scenarios
+# # Solving common **k8s** scenarios
 
 ## Overview
 
 The table below contains help documents which may be useful when solving common issues with **k8s**.
 
-### The **kubectl** cheatsheet is a good place to start:
+## The _kubectl_ cheatsheet is a good place to start:
 https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 
-## Scenario help documents
+## Scenario help documents<br>
 
-| **_Command_** | **_Purpose_** |
+| Command | Purpose |
 | -- | -- |
 | _k8s scenarios logs_ | Working with **k8s pod logs** |
 
-_To see more help run:_
-**k8s**
+<br>
+_To see more help run:_ **k8s**

@@ -42,15 +42,6 @@ RUN pip install --upgrade \
     awscli \
     s3cmd
 
-# install nodejs/npm:
-# version with debian stretch was stale and was missing 'npm'
-RUN DISTRO="$(lsb_release -s -c)" && \
-    curl -sSL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add - && \
-    echo "deb https://deb.nodesource.com/$NODEVERSION $DISTRO main" | tee /etc/apt/sources.list.d/nodesource.list && \
-    #echo "deb-src https://deb.nodesource.com/$NODEVERSION $DISTRO main" | tee -a /etc/apt/sources.list.d/nodesource.list && \
-    apt-get update && \
-    apt-get install -y nodejs
-
 # install powershell core
 # https://docs.microsoft.com/en-us/powershell/scripting/setup/installing-powershell-core-on-linux?view=powershell-6
 RUN curl $MSPKGKEYURL | sudo apt-key add - && \
@@ -84,10 +75,16 @@ RUN curl -L -o saml2aws.tar.gz $SAM2AWSURL \
     && mv saml2aws /usr/local/bin/saml2aws \
     && rm saml2aws.tar.gz
 
-# setup markdown formatting options
-RUN pip install mdv && \
-    npm install -g msee && \
-    npm install -g markdown-cli
+# setup markdown formatter: mdv (current version available via pip has a bug - manually installing)
+RUN mkdir /resources \
+    && pip install setuptools \
+    && git clone https://github.com/axiros/terminal_markdown_viewer.git /resources/terminal_markdown_viewer \
+    && /resources/terminal_markdown_viewer/setup.py install 
+
+# this is a bit of a "hack" the above install isn't working correctly from the context of the 
+# docker build process - a work around is to ask pip to do the install - but it complains about _other_
+# stuff - so we pipe it's errors and then return a 0 exit code.
+RUN pip install /resources/terminal_markdown_viewer &> /dev/null ; exit 0
 
 #
 # since the following change often - do last
@@ -101,7 +98,7 @@ ENV PATH="~/.local/bin:${PATH}"
 RUN echo "go ALL=NOPASSWD: ALL" >> /etc/sudoers
 
 # copy local resources/scripts to image
-RUN mkdir /resources
+# RUN mkdir /resources # created above
 COPY /resources /resources
 
 RUN mkdir /scripts

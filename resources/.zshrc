@@ -104,7 +104,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# mdv styling:
 export MDV_THEME=649.7192
 
 source /scripts/helpers.sh

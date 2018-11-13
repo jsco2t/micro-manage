@@ -19,10 +19,12 @@ RUN apk update && apk upgrade && apk add --no-cache \
     jq \
     less \
     nano \
-    nodejs \
-    npm \
     python \
     py-pip \
+    htop \
+    lsof \
+    redis \
+    stunnel \
     zip \
     zsh
 
@@ -59,10 +61,16 @@ RUN curl -L -o saml2aws.tar.gz $SAM2AWSURL \
 
 # # install powershell core
 
-# setup markdown formatting options
-RUN pip install mdv && \
-    npm install -g msee && \
-    npm install -g markdown-cli
+# setup markdown formatter: mdv (current version available via pip has a bug - manually installing)
+RUN mkdir /resources \
+    && pip install setuptools \
+    && git clone https://github.com/axiros/terminal_markdown_viewer.git /resources/terminal_markdown_viewer \
+    && /resources/terminal_markdown_viewer/setup.py install 
+
+# this is a bit of a "hack" the above install isn't working correctly from the context of the 
+# docker build process - a work around is to ask pip to do the install - but it complains about _other_
+# stuff - so we pipe it's errors and then return a 0 exit code.
+RUN pip install /resources/terminal_markdown_viewer &> /dev/null ; exit 0
 
 #
 # since the following change often - do last
@@ -72,11 +80,13 @@ RUN pip install mdv && \
 ENV LC_ALL en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV PATH="~/.local/bin:${PATH}"
+#ENV PYTHONPATH=${PYTHONPATH}:/usr/lib/python2.7/site-packages
+
 # remove the need to auth for sudo
 RUN echo "go ALL=NOPASSWD: ALL" >> /etc/sudoers
 
 # copy local resources/scripts to image
-RUN mkdir /resources
+# RUN mkdir /resources - created above
 COPY /resources /resources
 
 RUN mkdir /scripts

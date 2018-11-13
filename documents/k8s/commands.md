@@ -1,9 +1,8 @@
-----
-# _kubectl_ commands which are useful for working with _k8s_
+# # **kubectl** commands which are useful for working with **k8s**
 
 ## Overview
 
-Working with a **k8s cluster** is almost completely done with a utility called **kubectl**. **micro-manage** includes high-level tips and/or guidance for using **kubectl**. However for in depth information please consult the public documentation:
+Working with a **k8s cluster** is almost completely done with a utility called _kubectl_. _micro-manage_ includes high-level tips and/or guidance for using _kubectl_. However for in depth information please consult the public documentation:
 
 ### _kubectl_ overview
 https://kubernetes.io/docs/reference/kubectl/overview/
@@ -16,7 +15,7 @@ https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands
 
 ## Helper docs for working with _kubectl_
 
-| **_Command_** | **_Purpose_** |
+| Command | Purpose |
 | -- | -- |
 | _k8s commands deployments_ | Working with **k8s deployments** |
 | _k8s commands ingress_ | Working with **k8s ingress routes** |
@@ -26,5 +25,5 @@ https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands
 | _k8s commands pods_ | Working with **k8s pods** |
 | _k8s commands services_ | Working with **k8s services** |
 
-_To see more help run:_
-**k8s**
+<br>
+_To see more help run:_ **k8s**
