@@ -12,6 +12,7 @@ RUN apk update && apk upgrade && apk add --no-cache \
     bash \
     bind-tools \
     ca-certificates \
+    coreutils \
     curl \
     docker \
     git \
@@ -99,8 +100,10 @@ COPY /documents /documents
 # setup oh-my-zsh
 RUN cat /resources/oh-my-zsh-installer.sh | zsh || true
 
-# re-configure zsh:
-RUN cp /resources/.zshrc ~/.zshrc
+# re-configure shell:
+RUN cp /resources/.zshrc ~/.zshrc \
+    && cp /resources/dircolors.ansi-universial ~/.dircolors \
+    && cp /resources/js-oh-my.zsh-theme ~/.oh-my-zsh/themes/js-oh-my.zsh-theme
 
 # cleanup:
 

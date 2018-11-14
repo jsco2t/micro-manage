@@ -11,7 +11,11 @@ fi
 
 k8scmd() {
     if [ -n "$(type $1)" ]; then
-        $1
+        if [[ ! -z "$2" ]]; then
+            $1 "$2"
+        else
+            $1
+        fi
     else
         showDoc "/documents/k8s/index.md" "show-error"
     fi

@@ -10,7 +10,8 @@ export ZSH="/root/.oh-my-zsh"
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 
 # Default is: "robbyrussell"
-ZSH_THEME="ys" # <---- ascii compatabile / xplat theme: http://blog.ysmood.org/my-ys-terminal-theme/
+#ZSH_THEME="ys" # <---- ascii compatabile / xplat theme: http://blog.ysmood.org/my-ys-terminal-theme/
+ZSH_THEME="js-oh-my" # <---- customized version of "ys"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -105,6 +106,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export MDV_THEME=649.7192
+eval `dircolors -b ~/.dircolors`
 
 source /scripts/helpers.sh
 source /scripts/k8scmd.sh
