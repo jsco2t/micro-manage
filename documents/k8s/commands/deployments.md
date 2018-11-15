@@ -22,14 +22,14 @@ kubectl -n some-namespace create -f some-deployment.yaml
 More info:
 https://kubernetes.io/docs/concepts/overview/object-management-kubectl/overview/
 
-### View current **deployments**:
+### View current deployments:
 ```
 ----------------
 kubectl -n some-namespace get deployments
 ----------------
 ```
 
-### View **deployment** details:
+### View deployment details:
 ```
 ----------------
 kubectl -n some-namespace get deployments deployment-name -o yaml
@@ -37,14 +37,14 @@ kubectl -n some-namespace describe deployment deployment-name
 ----------------
 ```
 
-### View **deployment** rollout status:
+### View deployment rollout status:
 ```
 ----------------
 kubectl -n some-namespace rollout status deployment/deployment-name
 ----------------
 ```
 
-### Deleting a **deployment** using it's **yaml file** or **name**:
+### Deleting a deployment using it's 'yaml file' or 'name':
 ```
 ----------------
 kubectl -n some-namespace delete -f deployment-name.yaml

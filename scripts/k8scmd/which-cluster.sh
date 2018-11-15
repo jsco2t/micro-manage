@@ -15,6 +15,10 @@ which-cluster() {
     echo ""
     kubectl config get-contexts
     echo ""
+    echo "kubectl currently selected context:"
+    echo ""
+    kubectlconfig current-context
+    echo ""
     echo "kubectl version info:"
     echo""
     kubectl version

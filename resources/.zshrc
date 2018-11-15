@@ -105,7 +105,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export MDV_THEME=649.7192
+# export MDV_THEME=649.7192 # previous default - doesn't seem to work great on windows
+export MDV_THEME=960.847 # green/blue theme - others considered: 742.9875, 837.6638 
+
 eval `dircolors -b ~/.dircolors`
 
 source /scripts/helpers.sh

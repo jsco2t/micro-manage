@@ -10,7 +10,7 @@ https://kubernetes.io/docs/reference/kubectl/overview/
 ### And this is another link
 https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 
-## Use the following helper commands for more info about **product name**
+## Use the following helper commands for more info about product name
 
 | Command | Purpose |
 | -- | -- |

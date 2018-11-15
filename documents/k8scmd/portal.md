@@ -1,10 +1,10 @@
-# # k8scmd: **portal**
+# # k8scmd: portal
 
 ## What just ran:
 
-_kubectl_ was just launched as a **proxy** to allow access to tke **k8s dashboard**. The **proxy** is running in a background process which will exit in one hour.<br>
+**kubectl** was just launched as a **proxy** to allow access to tke **k8s dashboard**. The **proxy** is running in a background process which will exit in one hour.<br>
 
-### To access the portal the container must be launched with the _-p_ parameter:
+### To access the portal the container must be launched with the '-p' parameter:
 ```
 ----------------
 docker run -it -p 8001:8001 --name micro-manage jsco2t/micro-manage:latest

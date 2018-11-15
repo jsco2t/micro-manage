@@ -1,19 +1,19 @@
-# # **kubectl** commands which are useful for working with **k8s**
+# # kubectl commands which are useful for working with k8s
 
 ## Overview
 
-Working with a **k8s cluster** is almost completely done with a utility called _kubectl_. _micro-manage_ includes high-level tips and/or guidance for using _kubectl_. However for in depth information please consult the public documentation:
+Working with a **k8s cluster** is almost completely done with a utility called **kubectl**. **micro-manage** includes high-level tips and/or guidance for using **kubectl**. However for in depth information please consult the public documentation:
 
-### _kubectl_ overview
+### kubectl overview
 https://kubernetes.io/docs/reference/kubectl/overview/
 
-### _kubectl_ cheat-sheet
+### kubectl cheat-sheet
 https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 
-### _kubectl_ command reference
+### kubectl command reference
 https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands
 
-## Helper docs for working with _kubectl_
+## Helper docs for working with kubectl
 
 | Command | Purpose |
 | -- | -- |

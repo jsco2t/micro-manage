@@ -1,4 +1,4 @@
-# # k8scmd: **commandname**
+# # k8scmd: commandname
 
 ## What's going to be run:
 

@@ -1,4 +1,4 @@
-# # Working with **k8s** **COMMAND**
+# # Working with k8s COMMAND
 
 ## Overview
 
@@ -7,7 +7,7 @@ Put your overview info here. If mentioning products put emphasis around the **co
 For more information:
 https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands
 
-### Doing **something** using the _foo_ command:
+### Doing something using the foo command:
 ```
 ----------------
 put your source code here

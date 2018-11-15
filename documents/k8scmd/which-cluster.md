@@ -1,15 +1,16 @@
-# # k8scmd: _which-cluster_
+# # k8scmd: which-cluster
 
 ## What's going to be run:
 
 This helper command will report on which cluster **context** your configured for, as well as the cluster version information.<br>
 
-**PLEASE NOTE** If the _kubectl version_ command fails then you likely have a configuration problem in your **kubectl config file** OR a networking issue connecting to the cluster.
+**PLEASE NOTE**: If the **kubectl version** command fails then you likely have a configuration problem in your **kubectl config file** OR a networking issue connecting to the cluster.
 
 ### Example:
 ```
 ----------------
 kubectl config get-contexts
+kubectl config current-context
 kubectl version
 ----------------
 ```

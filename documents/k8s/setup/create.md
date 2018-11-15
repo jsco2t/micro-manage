@@ -1,4 +1,4 @@
-# # Setting up **kubectl** to access **k8s**
+# # Setting up kubectl to access k8s
 
 ## Option: Create a config file and/or configure it.
 
@@ -9,7 +9,7 @@
 - The access token for the user
 - A name (logical name) to use for the cluster<br>
 
-This is not a complete list. The requirements on the **kubectl config file** will depend on how the kubernetes cluster is configured. Please evaluate the various configuration options _kubectl_ provides by checking it's help documentation:
+This is not a complete list. The requirements on the **kubectl config file** will depend on how the kubernetes cluster is configured. Please evaluate the various configuration options **kubectl** provides by checking it's help documentation:
 
 ```
 kubectl config --help

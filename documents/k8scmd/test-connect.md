@@ -1,4 +1,4 @@
-# # k8scmd: **test-connect**
+# # k8scmd: test-connect
 
 ## What's going to be run:
 
@@ -10,7 +10,7 @@ This helper command will test to see if we can get **version** information from 
 kubectl version
 ----------------
 ```
-**Note** _kubectl version_ will report both the **client** and the **server** version. If you see any sort of connection error *after* the client information then you have a connection problem.
+**Note**: **kubectl version** will report both the **client** and the **server** version. If you see any sort of connection error after the client information then you have a connection problem.
 
 ### Example failure output:
 ```

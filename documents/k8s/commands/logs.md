@@ -1,4 +1,4 @@
-# # Working with **k8s** **pod logs**
+# # Working with k8s pod logs
 
 ## Overview
 
@@ -7,7 +7,7 @@
 For more information:
 https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands
 
-### Viewing the _logs_ for a **pod**
+### Viewing the logs for a pod
 
 First - find your pod (example for the 'qa' namespace):
 ```
@@ -23,14 +23,14 @@ kubectl -n qa logs pod-name-here
 ----------------
 ```
 
-### Viewing the _logs_ for a **container** in a **pod** which has multiple **containers** in it:
+### Viewing the logs for a container in a pod which has multiple containers in it:
 ```
 ----------------
 kubectl -n qa logs pod-name-here container-name-here
 ----------------
 ```
 
-### Viewing the last 'N' log lines for a **pod**:
+### Viewing the last 'N' log lines for a pod:
 ```
 ----------------
 kubectl -n qa logs pod-name-here --tail=10
