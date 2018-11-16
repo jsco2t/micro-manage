@@ -114,6 +114,7 @@ RUN cat /resources/oh-my-zsh-installer.sh | zsh || true
 # re-configure shell:
 RUN cp /resources/.zshrc ~/.zshrc \
     && cp /resources/dircolors.ansi-universal ~/.dircolors \
+    && cp /resources/.mdv.py ~/.mdv.py \
     && cp /resources/js-oh-my.zsh-theme ~/.oh-my-zsh/themes/js-oh-my.zsh-theme
 
 # cleanup:
